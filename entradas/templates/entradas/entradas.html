@@ -1,0 +1,92 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/lista_entradas.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas"> 
+        <div class="container-fluid">
+            <form  method="GET">
+                <div class="col-md-3">
+                  <input id="buscarbox" type="search" class="form-control" placeholder="Buscar" aria-label="Search" name="buscar" value="{{request.GET.buscar}}">
+                </div>
+            </form>
+        </div>
+        <ul class="nav nav-pills nav-fill" id="Pestañas">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#Productos" id="pest_prod">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#codigo_barras" id="pest_cb">Codigo de barras</a>
+          </li>
+        </ul>
+    </div>
+    
+    <div class="tab-content">
+      <div class="tab-pane show active" id="Productos">
+        <a href="{%url 'crear_producto'%}"><button id="Boton_Add" class="btn btn-primary" type="button">Añadir</button></a>
+        <table class="tabla_cuentas">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre del Producto</th>
+                <th>Producto Entregado</th>
+                <th>Codigo de Barras</th>
+                <th>Acciones</th>
+              </tr>                
+            </thead>
+            <tbody>
+              {% for prod in productos %}
+                <tr>
+                  {% if prod.Img_producto %}
+                    <td><img id="img_prod" src="{{prod.Img_producto.url}}" target="_blank" style="width: 100px;"></td>
+                  {% endif %}
+                  <td>{{prod.nombre}}</td>
+                  <td>{{prod.entrega}}</td>
+                  <td>{{prod.seleccion_cb.codigocompleto}}</td>
+                  <td>
+                    <a href="{% url 'editar_producto' prod.id %}"><span class="material-icons">edit</span></a>
+                    <a href="{% url 'borrar_producto' prod.id %}"><span class="material-icons">delete</a>
+                    <a href=""><span class="material-icons">more_vert</a>
+                  </td>
+                  {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="codigo_barras">
+        <a href="{%url 'crear_entrada' %}" ><button id="Boton_Add" class="btn btn-primary" type="button">Añadir</button></a>
+        <table class="tabla_cuentas">
+            <thead>
+              <tr>
+                <th>Nombre del Producto</th>
+                <th>Codigo de Barras</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+              </tr>                
+            </thead>
+            <tbody>
+              {% for cb in codigo_barras %}
+                <tr>
+                  <td>{{cb.nombre}}</td>
+                  <td>{{cb.codigocompleto}}</td>
+                  {% if cb.barcode %}
+                  <td ><img id="barcode" src="{{cb.barcode.url}}" target="_blank"></td>
+                  {% endif %}
+                  <td><a href="{{cb.barcode.url}}" download>Descargar</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+
+{% block footer %}
+<script src="{%static 'javascript/entradas.js' %}"></script>
+{% endblock %}
+
+{% endblock content %}

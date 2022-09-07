@@ -1,0 +1,110 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/caja_lista.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_caja">
+    <div class="encabezado_caja">
+        <div class="container-fluid">
+            <form  method="GET">
+                <div class="col-md-3">
+                    <input id="buscarbox" type="search" class="form-control" placeholder="Buscar" aria-label="Search" name="buscar" value="{{request.GET.buscar}}">
+                  </div>
+            </form>
+        </div>
+        <a href="{% url 'registrar' %}"><span class="material-icons-outlined" id="add_circle">add_circle</span></a>
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#General">General</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#AbrirCaja">Abrir Caja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " data-bs-toggle="tab" href="#Ordenes">Ordenes</a>
+            </li>
+          </ul>
+    </div>
+    <div class="tab-content">
+    {%if request.user.is_staff%}
+
+        {%include 'interfaz_staff/caja_staff.html'%}
+
+        {% else %}
+        <div class="tab-pane" id="Ordenes">
+            <table class="tabla_caja">
+                <thead>
+                <tr>
+                    <th>Numero de Orden</th>
+                    <th>Numero de Mesa</th>
+                    <th>Platillos</th>
+                    <th>Precio Total</th>
+                    <th>Extras</th>
+                </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="AbrirCaja">
+            <table class="tabla_caja">
+                <thead>
+                <tr>
+                    <th>Fecha de Apertura</th>
+                    <th>Monto Incial</th>
+                    <th>Encargado</th>
+                    <th>Restaurante</th>
+                    <th>Caja</th>
+                </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="CerrarCaja">
+            <table class="tabla_caja">
+                <thead>
+                <tr>
+                    <th>Fecha de Cierre</th>
+                    <th>Monto Final</th>
+                    <th>Encargado</th>
+                    <th>Restaurante</th>
+                    <th>Caja</th>
+                    <th>Ventas</th>
+                    <th>Total</th>
+                </tr>                
+                </thead>
+                <tbody>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock content %}

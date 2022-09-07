@@ -1,0 +1,46 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/Salidas.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+            <form  method="GET">
+                <div class="col-md-3">
+                    <input id="buscarbox" type="search" class="form-control" placeholder="Buscar" aria-label="Search" name="buscar" value="{{request.GET.buscar}}">
+                  </div>
+            </form>
+        </div>
+        <button id="Boton_Add" class="btn btn-primary" type="button"><a href="{% url 'salida_add' %}">Añadir</button></a>
+        <h1>Salidas</h1>
+    </div>
+    <table class="tabla_cuentas">
+        <thead>
+          <tr>
+            <th>Nombre clave</th>
+            <th>Cantidad Saliente</th>
+            <th>Gasto Total</th>
+            <th>codigo de barras</th>
+            <th>Estado</th>
+          </tr>                
+        </thead>
+        <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <a href=""><span class="material-icons">more_vert</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+
+{% endblock content %}

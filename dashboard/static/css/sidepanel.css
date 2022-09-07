@@ -1,0 +1,76 @@
+.sidebar{
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    background: #077575;
+    border-radius: 0px 28px 28px 0px;
+}
+
+
+.sidebar a {
+    position: relative;
+    display: block;
+    color: #B9DBDC;
+    padding: 16px;
+    text-decoration: none;
+    top: 18%;
+}
+  
+  
+.sidebar a.activate {
+    color: #EC8129;
+}
+  
+  
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+    transition: 2s;
+}
+
+.sidebar a i{
+    padding-right: 1%;
+}
+
+#Dash{
+    vertical-align:text-top;
+    
+}
+
+#Inventory{
+    vertical-align:text-top;
+}
+
+#Cal{
+    vertical-align:text-bottom;
+}
+
+#WH{
+    vertical-align:text-bottom;
+}
+
+#LS{
+    vertical-align:text-bottom;
+}
+
+#User{
+    vertical-align:text-bottom;
+}
+
+#Rest{
+    vertical-align:text-bottom;
+}
+
+@media screen and (max-width:1400px){
+    .sidebar{
+        position: absolute;
+        width: 15%;
+        height: 100%;
+        background: #077575;
+        border-radius: 0px 28px 28px 0px;
+    }
+    
+
+
+
+}

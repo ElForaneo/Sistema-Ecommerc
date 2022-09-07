@@ -1,0 +1,81 @@
+.listado_cuentas{
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    left: 20%;
+    top: 15%;
+    background: #077575;
+    border-radius: 23px;
+}
+
+.texto_ayuda{
+    color: rgba(156, 156, 156, 0.466);
+}
+
+label{
+    color: black;
+}
+
+.encabezado_cuentas {
+    position: relative;
+    width: 100%;
+    height:15%;
+    background: #005151;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 23px 23px 0px 0px;
+}
+
+.encabezado_cuentas h1{
+    position:relative;
+    display: inline;
+    top: 35%;
+    left: 2%;
+    color: white;
+}
+
+button{
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.row{
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+}
+
+.row .form-check{
+    margin-left: .5%;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+@media screen and (max-width:1400px){
+
+        .encabezado_cuentas h1{
+            position:relative;
+            display: inline;
+            top: 20%;
+            left: 2%;
+            color: white;
+        }
+
+        #icono{
+            position: relative;
+            left:100%;
+            margin-left: 5%;
+            top: -30%;
+        }
+
+        #btn_regis{
+            width: 15%;
+            height: 5%;
+            margin-top: 10%;
+            margin-left: 1.5%;
+        }
+}

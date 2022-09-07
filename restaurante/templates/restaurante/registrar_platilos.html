@@ -1,0 +1,51 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/crear_producto.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+        </div>
+        <h1>Registrar Producto</h1>
+    </div>
+    <div class="registrar-body">
+        <form method="POST" action=""  enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row g-2">
+                <div class="col-8">
+                    <label for="colFormLabel" class="col-sm-4 col-form-label">Suba una foto del producto</label>
+                    {{formEntra.Img_producto}}
+                </div>
+                <div class="col-6">
+                    <label for="colFormLabel" class="col-sm-4 col-form-label">Nombre del Producto</label>
+                    {{formEntra.nombre}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Cantidad Entrante</label>
+                    {{formEntra.cantidad_entrante}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Seleccionar Codigo de Barras</label>
+                    {{formEntra.select_codigobarras}}
+                </div>
+            </div>
+            {% if field.help_text %}
+                <small id="texto_ayuda">{{field.help_text}}</small>
+            {% endif %}
+
+            {% for error in field.errors %}
+                <p style="color:red;">{{error}}</p>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </form>
+    </div>
+</div>
+   
+{% block footer %}
+{% endblock %}
+{% endblock content %}

@@ -1,0 +1,31 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/crear_producto.css'%}">
+<link rel="stylesheet" href="{%static 'css/botones.css'%}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+        </div>
+        <h1>Registrar Producto</h1>
+    </div>
+    <div class="registrar-body">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h4 id="borrartit">¿Usted desea borrar el producto {{delproducto.nombre}}?</h4>
+            <p>Este cambio sera permanente</p>
+
+            <button type="submit" class="btn btn-danger">Borrar</button>
+            <a href="{% url 'entradas' %}" id="botoncancelar">Cancelar</a>
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+{% block footer %}
+{% endblock %}
+{% endblock content %}

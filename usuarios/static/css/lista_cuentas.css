@@ -1,0 +1,160 @@
+.listado_cuentas{
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    left: 20%;
+    top: 15%;
+    background: #077575;
+    border-radius: 23px;
+}
+
+.texto_ayuda{
+    color: rgba(156, 156, 156, 0.466);
+}
+
+label{
+    color: White;
+}
+
+.encabezado_cuentas {
+    position: relative;
+    width: 100%;
+    height:15%;
+    background: #005151;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 23px 23px 0px 0px;
+}
+
+.encabezado_cuentas h1{
+    position:relative;
+    display: inline;
+    top: 15%;
+    left: 2%;
+    color: white;
+}
+
+#Boton_Add {
+    position: relative;
+    top: 9%;
+    left: 64%;
+    background-color: #C07639;
+    border-color: #C07639;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#Boton_Add:hover{
+    background-color: #9E561A;
+    border-color: #9E561A;
+}
+
+.container-fluid{
+    position: relative;
+    display: inline-block;
+    top: 45%;
+    left: 70%;
+}
+
+.tabla_cuentas{
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.tabla_cuentas thead tr{
+    border-bottom: 1px solid grey;
+}
+
+.tabla_cuentas thead tr th{
+    letter-spacing: 1px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+.tabla_cuentas tbody tr td{
+    letter-spacing: 1px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+.tabla_cuentas tbody tr td{
+    letter-spacing: 1px;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+
+
+@media screen and (max-width:1400px){
+
+    .listado_cuentas{
+        position: absolute;
+        width: 75%;
+        height: 80%;
+        left: 20%;
+        top: 15%;
+        background: #077575;
+        border-radius: 23px;
+    }
+
+    .encabezado_cuentas {
+        position: relative;
+        width: 100%;
+        height:15%;
+        background: #005151;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 23px 23px 0px 0px;
+    }
+
+    .encabezado_cuentas h1{
+        position:relative;
+        display: inline;
+        left: -5%;
+        top: -35%;
+        color: white;
+    }
+
+    #Boton_Add {
+        top: -45%;
+        left: 60%;
+        background-color: #C07639;
+        border-color: #C07639;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    
+    #Boton_Add:hover{
+        background-color: #9E561A;
+        border-color: #9E561A;
+    }
+
+
+    .container-fluid{
+        position: relative;
+        display: inline-block;
+        top: 30%;
+        left: 70%;
+    }
+
+    .tabla_cuentas{
+        border-collapse: collapse;
+        width: 95%;
+        text-align: center;
+        margin-left: 2%;
+        margin-top: 2%;
+    }
+
+    .tabla_cuentas thead tr{
+        border-bottom: 1px solid grey;
+    }
+
+    .tabla_cuentas thead tr th{
+        letter-spacing: 1px;
+        padding: 5px;
+        text-align: center;
+        color: white;
+    }
+}

@@ -1,0 +1,75 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/crear_producto.css'%}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+        </div>
+        <h1>Registrar Producto</h1>
+    </div>
+    <div class="registrar-body">
+        <form method="POST" action=""  enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row g-2">
+                <div class="col-8">
+                    <label for="colFormLabel" class="col-sm-4 col-form-label">Suba una foto del producto</label>
+                    {{formEntra.Img_producto}}
+                </div>
+                <div class="col-6">
+                    <label for="colFormLabel" class="col-sm-4 col-form-label">Nombre del Producto</label>
+                    {{formEntra.nombre}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Cantidad Entrante</label>
+                    {{formEntra.entrega}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Categoria</label>
+                    {{formEntra.categoria}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Estado</label>
+                    {{formEntra.estado}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Almacen</label>
+                    {{formEntra.almacen}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Descripcion</label>
+                    {{formEntra.descripcion}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Seleccionar Codigo de Barras</label>
+                    {{formEntra.seleccion_cb}}
+                </div>
+            </div>
+            {% if field.help_text %}
+                <small id="texto_ayuda">{{field.help_text}}</small>
+            {% endif %}
+
+            {% for error in field.errors %}
+                <p style="color:red;">{{error}}</p>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('#id_seleccion_cb').select2();
+});
+</script>
+{% block footer %}
+{% endblock %}
+{% endblock content %}

@@ -1,0 +1,50 @@
+{%load static%}
+<!DOCTYPE html>
+<head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+    <link rel="stylesheet" href="{%static 'css/sidepanel.css'%}">
+    <link rel="stylesheet" href="{%static 'css/navbar.css'%}">
+</head>
+<body>
+    <div class="navbar">
+       <a href="{%url 'logout' %}"><span class="material-icons-outlined" id="logoff">power_settings_new</span></a>
+    </div>
+    {%if request.user.is_staff%}
+    <div class="sidebar">
+        {%url 'home' as url %}
+        <a href="{{ url }}" class="{%if request.path == url%}activate{%endif%}"><i class="material-icons" id="Dash">dashboard</i><span>Dashboard</span></a>
+        {%url 'inventario' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="Inventory">inventory_2</i> Inventario</a>
+        {%url 'calendario' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="Cal">calendar_month</i> Calendario</a>
+        {%url 'entradas' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="WH">warehouse</i> Entrada</a>
+        {%url 'salida' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="LS">local_shipping</i> Salida</a>
+        {%url 'usuario' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="User">person</i> Usuarios</a>
+        {%url 'restaurante' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="Rest">restaurant</i> Restaurantes</a>
+        {% url 'caja_lista' as url %}
+        <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons-outlined">point_of_sale</i> Caja</a>
+        {%else%}
+        <div class="sidebar">
+            {%url 'home' as url %}
+            <a href="{{ url }}" class="{%if request.path == url%}activate{%endif%}"><i class="material-icons" id="Dash">dashboard</i><span>Dashboard</span></a>
+            {% url 'caja_lista' as url %}
+            <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons-outlined">point_of_sale</i> Caja</a>
+            {%url 'inventario' as url %}
+            <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="Inventory">inventory_2</i> Inventario</a>
+            {%url 'calendario' as url %}
+            <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="Cal">calendar_month</i> Calendario</a>
+            {%url 'entrada' as url %}
+            <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="WH">warehouse</i> Entrada</a>
+            {%url 'salida' as url %}
+            <a href="{{url}}" class="{%if request.path == url%}activate{%endif%}"> <i class="material-icons" id="LS">local_shipping</i> Salida</a>
+        </div>
+        {%endif%}
+    </div>
+
+
+</body>
+</html>

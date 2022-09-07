@@ -1,0 +1,61 @@
+.listado_cuentas{
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    left: 20%;
+    top: 15%;
+    background: #077575;
+    border-radius: 23px;
+}
+
+.texto_ayuda{
+    color: rgba(156, 156, 156, 0.466);
+}
+
+label{
+    color: White;
+}
+
+.encabezado_cuentas {
+    position: relative;
+    width: 100%;
+    height:15%;
+    background: #005151;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 23px 23px 0px 0px;
+}
+
+.encabezado_cuentas h1{
+    position:relative;
+    display: inline;
+    top: 35%;
+    left: 2%;
+    color: white;
+}
+
+
+#borrartit{
+    padding: 5%;
+    color: white;
+}
+
+p{
+    color: white;
+    padding: 0% 5%;
+}
+.btn{
+    margin: 2% 5%;
+}
+
+@media screen and (max-width:1400px){
+
+        .encabezado_cuentas h1{
+            position:relative;
+            display: inline;
+            top: 20%;
+            left: 2%;
+            color: white;
+        }
+
+
+}

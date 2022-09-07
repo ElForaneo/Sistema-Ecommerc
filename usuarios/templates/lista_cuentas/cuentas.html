@@ -1,0 +1,58 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/lista_cuentas.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+            <form  method="GET">
+                <div class="col-md-3">
+                    <input id="buscarbox" type="search" class="form-control" placeholder="Buscar" aria-label="Search" name="buscar" value="{{request.GET.buscar}}">
+                  </div>
+            </form>
+        </div>
+        <a href="{% url 'registrar' %}"><button id="Boton_Add" class="btn btn-primary" type="button">Añadir</button></a>
+        <h1>Empleados</h1>
+    </div>
+    <table class="tabla_cuentas">
+        <thead>
+          <tr>
+            <th>Nomina</th>
+            <th>Empleado</th>
+            <th>Telefono</th>
+            <th>Local</th>
+            <th>Es staff</th>
+            <th>Acciones</th>
+          </tr>                
+        </thead>
+        <tbody>
+          {% for usario in usuarios %}
+            <tr>
+              <td>{{usario.username}}</td>
+              <td>{{usario.nombre_completo}}</td>
+              <td>{{usario.telefono}}</td>
+              {% for locales in usuarios %}
+                <td>{{locales.local}}</td>
+              {% endfor %}
+              {%if usario.is_staff %}
+              <td><input class="form-check-input" type="checkbox" name="is_staff"  checked  disabled></td>
+              {% else %}
+              <td><input class="form-check-input" type="checkbox" name="is_staff"    disabled></td>
+              {% endif %}
+              <td>
+                <a href="{% url 'editar_usuario' usario.id %}"><span class="material-icons">edit</span></a>
+                <a href="{% url 'borrar_usuario' usario.id %}"><span class="material-icons">delete</a>
+                <a href=""><span class="material-icons">more_vert</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
+
+
+{% endblock content %}

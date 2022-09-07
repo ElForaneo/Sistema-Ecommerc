@@ -1,0 +1,67 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/dashboard.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+
+<br>
+<div class="Contenedor-dash1">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Empleado</h5>
+                <hr>
+                <a href="" class="btn btn-primary btn sm btn-block">Actualizar</a>
+                <br>
+                <a href="" class="btn btn-danger btn sm btn-block">Borrar</a>
+            </div>
+        </div>
+
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Pedidos</h5>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Notificaciones</h5>
+                <hr>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<div class="Contenedor-dash2 ">
+    <div class="row">
+    <div class="card col-md text-bg-light">
+        <div class="card-header">
+            <h5>Ultimos 5 Productos Agregados</h5>
+        </div>
+    <div class="card-body">
+        <table class="table table-sm">
+            <tr>
+                <th>Nombre del producto</th>
+                <th>Categoria</th>
+                <th>Inventario</th>
+                <th>En Entrega</th>
+                <th>En Salida</th>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+    <div class="col-md-3" id="Graficos">
+        <div class="card card-body">
+            <h5>Grafico</h5>
+            <hr>
+
+        </div>
+    </div>
+    </div>
+</div>
+
+{%endblock%}

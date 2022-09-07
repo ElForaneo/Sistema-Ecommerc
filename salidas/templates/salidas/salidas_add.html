@@ -1,0 +1,57 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/registrar_cuenta.css'%}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+        </div>
+        <h1>Registrar</h1>
+    </div>
+    <div class="registrar-body">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row g-2">
+                <div class="col-12">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Nombre</label>
+                    {{form.nombre}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Almacen</label>
+                    {{form.almacen}}
+                </div>
+                <div class="col-md-4">
+                    <label for="colFormLabel" class=" col-form-label">Cantidad Saliente</label>
+                    {{form.salida}}
+                </div>
+                <div class="col-9">
+                    <label for="colFormLabel" class=" col-form-label">Estado</label>
+                    {{form.estado}}
+                </div>
+
+            </div>
+            {% if field.help_text %}
+                <small id="texto_ayuda">{{field.help_text}}</small>
+            {% endif %}
+
+            {% for error in field.errors %}
+                <p style="color:red;">{{error}}</p>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </form>
+    </div>
+</div>
+   
+{% block footer %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{%static 'javascript/cuenta_script.js' %}"></script>
+{% endblock %}
+{% endblock content %}
+

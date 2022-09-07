@@ -1,0 +1,75 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/restaurante.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_restaurante">
+    <div class="encabezado_restaurante"> 
+        <div class="container-fluid">
+            <form  method="GET">
+                <div class="col-md-3">
+                  <input id="buscarbox" type="search" class="form-control" placeholder="Buscar" aria-label="Search" name="buscar" value="{{request.GET.buscar}}">
+                </div>
+            </form>
+        </div>
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#Platillos">Platillos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#Locales">Locales</a>
+          </li>
+        </ul>
+    </div>
+    
+    <div class="tab-content">
+      <div class="tab-pane show active" id="Platillos">
+        <a href="{%url 'crearplat'%}" class="active"><button id="Boton_Add" class="btn btn-primary" type="button">Añadir</button>></a>
+        <table class="tabla_restaurante">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre del Platillo</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+              </tr>                
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="Locales">
+        <a href="{%url 'crearlocales' %}" ><button id="Boton_Add" class="btn btn-primary" type="button">Añadir</button></a>
+        <table class="tabla_restaurante">
+            <thead>
+              <tr>
+                <th>Nombre del Local</th>
+                <th>Dirreccion</th>
+                <th>Codigo Postal</th>
+                <th>Telefono</th>
+              </tr>                
+            </thead>
+            <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+{% block footer %}
+{% endblock %}
+
+{% endblock content %}

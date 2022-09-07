@@ -1,0 +1,34 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block extrahead%}
+<link rel="stylesheet" href="{%static 'css/crear_entrada.css'%}">
+{%endblock extrahead%}
+
+{%block content%}
+<div class="listado_cuentas">
+    <div class="encabezado_cuentas">
+        <div class="container-fluid">
+        </div>
+        <h1>Registrar</h1>
+    </div>
+    <div class="registrar-body">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="colFormLabel" class=" col-form-label">Nombre</label>
+                    {{form.nombre}}
+                    <span id="icono" class="material-icons">help</span>
+                </div>
+                <div class="col-md-12">
+                    <label for="colFormLabel" class=" col-form-label">Codigo de barras</label>
+                    {{form.codigo_barras}}
+            </div>
+                <button type="submit" class="btn btn-success me-md-2" id="btn_regis">Registrar</button>
+        </form>
+    </div>
+</div>
+   
+{% block footer %}
+{% endblock %}
+{% endblock content %}
